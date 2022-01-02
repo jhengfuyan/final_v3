@@ -89,4 +89,26 @@ public class SQLiteDataBaseHelper extends SQLiteOpenHelper {
         }
         return arrayList;
     }
+    public ArrayList<HashMap<String, String>> searchByName(String getSeriesName) {
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.rawQuery(" SELECT * FROM " + TableName
+                + " WHERE SeriesName =" + "'" + getSeriesName + "'", null);
+        ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
+        while (c.moveToNext()) {
+            HashMap<String, String> hashMap = new HashMap<>();
+            String id = c.getString(0);
+            String seriesName = c.getString(1);
+            String typeName = c.getString(2);
+            String dishName = c.getString(3);
+            String recipe = c.getString(4);
+
+            hashMap.put("id", id);
+            hashMap.put("seriesName", seriesName);
+            hashMap.put("typeName", typeName);
+            hashMap.put("dishName", dishName);
+            hashMap.put("recipe", recipe);
+            arrayList.add(hashMap);
+        }
+        return arrayList;
+    }
 }
