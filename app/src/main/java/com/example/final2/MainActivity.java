@@ -10,16 +10,21 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
     SQLiteDataBaseHelper mDBHelper;
-    private ArrayList<HashMap<String, String>> gridView;
+
     private final String DB_NAME = "MyList.db";
     private final String TABLE_NAME = "MyTable";
     private final int DB_VERSION = 1;
@@ -36,7 +41,9 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<HashMap<String, String>> selectedData = new ArrayList<>();
     MainActivity.MyAdapter myAdapter;
 
-    private class MyAdapter extends RecyclerView.Adapter<MainActivity.MyAdapter.ViewHolder> {//設置Adapter
+    private class MyAdapter extends RecyclerView.Adapter<MainActivity.MyAdapter.ViewHolder> {
+        public MyAdapter(Data[] foodData, int food_list) {
+        }//設置Adapter
         @NonNull
         @Override
         public MainActivity.MyAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -67,12 +74,12 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-//-----------gridview catch ---------------
-class Data{
-    int photo;
-    String name;
+    //-----------gridview catch ---------------
+    class Data{
+        int photo;
+        String name;
 
-}
+    }
     public class GMyAdapter extends BaseAdapter {
         private MainActivity.Data[] data;
         private int view;
@@ -103,7 +110,7 @@ class Data{
             return convertView;
         }
     }
-//-----------gridview catch ---------------
+    //-----------gridview catch ---------------
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,61 +118,84 @@ class Data{
 
         //---------spinner------------
         spinner = findViewById(R.id.spinner);
-        TextView textView = findViewById(R.id.textView);
         adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1,seriesName);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         //--------spinner-------------
-        mDBHelper = new SQLiteDataBaseHelper(this, DB_NAME
-                , null, DB_VERSION, TABLE_NAME);//初始化資料庫
-        mDBHelper.chickTable();//確認是否存在資料表，沒有則新增
-
-        mDBHelper.putData("從零從開始的異世界廚房", "m", "frog", "活體丟進去煮");
-        mDBHelper.putData("從零從開始的異世界廚房", "m", "dog", "嘴吧纏住剁掉四肢分別煮");
-        mDBHelper.putData("從零從開始的異世界廚房", "m", "cat", "手工拔毛油炸");
-        mDBHelper.putData("從零從開始的異世界廚房", "v", "lobo", "直接啃就好吃菜還要煮?");
-        mDBHelper.putData("從零從開始的異世界廚房", "v", "mushroom", "挑最毒的吃");
-        mDBHelper.putData("庫克廚房", "m", "福壽螺", "榨汁");
-        mDBHelper.putData("庫克廚房", "v", "義大利香料", "佐義大利麵");
-        mDBHelper.putData("擦菜大全", "m", "生鼠肉丼飯", "頭部淋熱油開吃");
-        mDBHelper.putData("擦菜大全", "v", "公園雜草", "佐新鮮牛糞");
-        gridView = mDBHelper.searchBySeriesName();//撈取資料表內所有資料*/
-        myAdapter = new MyAdapter();
-
         //---------spinner selected--------------
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selectedItemText = (String) adapter.getItem(position);
-
-                gridView = mDBHelper.searchByName(selectedItemText);
+                char[] charSearch = {'擦','庫','從'};
+                char chr = selectedItemText.charAt(0);
+                for(int j=0; j<charSearch.length; j++)
+                {
+                    switch (j){
+                        case 0 :{//擦菜
+                            if (charSearch[j] == chr){
+                                String[] FoodArray = new String[]{"筍乾封肉","高麗菜煎餅","蒜蓉蒸蝦","佛跳牆"};
+                                int [] FoodPhotoIdArray = new int[]{R.drawable.chinesemeat,R.drawable.chinesevegetable
+                                        ,R.drawable.chinesegarlicshirmp,R.drawable.chinesesoup};
+                                Data[] foodData = new Data[FoodArray.length];
+                                for (int i = 0 ; i<foodData.length;i++){
+                                    foodData[i] = new Data();
+                                    foodData[i].name = FoodArray[i];
+                                    foodData[i].photo =FoodPhotoIdArray[i];
+                                }
+                                GMyAdapter foodAdapter = new GMyAdapter(foodData,R.layout.food_list);//放入foodData資料array
+                                GridView gridView = findViewById(R.id.gridView);
+                                gridView.setAdapter(foodAdapter);
+                                gridView.setNumColumns(2);
+                            }
+                            break;
+                        }
+                        case 1:{//庫克
+                            if (charSearch[j] == chr){
+                                String[] FoodArray = new String[]{"紅酒燉牛肉","馬鈴薯球","香煎杏仁鱈魚","羅宋湯"};
+                                int [] FoodPhotoIdArray = new int[]{R.drawable.redmeat,R.drawable.potato
+                                        ,R.drawable.fish,R.drawable.soup};
+                                Data[] foodData = new Data[FoodArray.length];
+                                for (int i = 0 ; i<foodData.length;i++){
+                                    foodData[i] = new Data();
+                                    foodData[i].name = FoodArray[i];
+                                    foodData[i].photo =FoodPhotoIdArray[i];
+                                }
+                                GMyAdapter foodAdapter = new GMyAdapter(foodData,R.layout.food_list);//放入foodData資料array
+                                GridView gridView = findViewById(R.id.gridView);
+                                gridView.setAdapter(foodAdapter);
+                                gridView.setNumColumns(2);
+                            }
+                            break;
+                        }
+                        case 2:{//RE:0
+                            if (charSearch[j] == chr){
+                                String[] FoodArray = new String[]{"爆炒熊肉","菜湯","白酒煮藍青口","莫斯科紅菜湯"};
+                                int [] FoodPhotoIdArray = new int[]{R.drawable.rebear,R.drawable.revegetablesoup
+                                        ,R.drawable.reclams,R.drawable.resoup};
+                                Data[] foodData = new Data[FoodArray.length];
+                                for (int i = 0 ; i<foodData.length;i++){
+                                    foodData[i] = new Data();
+                                    foodData[i].name = FoodArray[i];
+                                    foodData[i].photo =FoodPhotoIdArray[i];
+                                }
+                                GMyAdapter foodAdapter = new GMyAdapter(foodData,R.layout.food_list);//放入foodData資料array
+                                GridView gridView = findViewById(R.id.gridView);
+                                gridView.setAdapter(foodAdapter);
+                                gridView.setNumColumns(2);
+                            }
+                            break;
+                        }
+                    }
+                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
-        //-------spinner selected---------------
-        //-------gridview catch ----------------
-       /* String[] cubeeNameArray = new String[]{"哭聲","發抖","再見","生氣","昏倒",
-                "竊笑","很棒","你好","驚嚇","大笑"};
-        int [] cubeePhotoIdArray = new int[]{R.drawable.cubee1,R.drawable.cubee2
-                ,R.drawable.cubee3,R.drawable.cubee4,R.drawable.cubee5,R.drawable.cubee6
-                ,R.drawable.cubee7,R.drawable.cubee8,R.drawable.cubee9,R.drawable.cubee10
-        };
-        Data[] cubeeData = new Data[cubeeNameArray.length];
-        for (int i = 0 ; i<cubeeData.length;i++){
-            cubeeData[i] = new Data();
-            cubeeData[i].name = cubeeNameArray[i];
-            cubeeData[i].photo = cubeePhotoIdArray[i];
-        }
+        //-------spinner selected End---------------
+        Button btn_all = findViewById(R.id.btn_all);
 
-        MyAdapter cubeeAdapter = new MyAdapter(cubeeData,R.layout.cubee_list);
-
-        GridView gridView = findViewById(R.id.gridView);
-        gridView.setAdapter(cubeeAdapter);
-        gridView.setNumColumns(3);*/
-
-        //-------gridview catch ----------------
     }
 }

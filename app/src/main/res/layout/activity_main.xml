@@ -30,17 +30,22 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/image1" />
 
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="241dp"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="360dp"
         android:layout_height="43dp"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="171dp"
-        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         >
 
         <Button
@@ -73,35 +78,25 @@
 
     </LinearLayout>
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="241dp"
-        android:layout_height="50dp"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView"/>
-
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginBottom="20dp"
-        tools:layout_editor_absoluteY="171dp"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout1"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout1">
 
         <GridView
             android:id="@+id/gridView"
             android:layout_width="match_parent"
-            android:layout_height="500dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="20dp" />
+            android:layout_height="400dp"
+
+            />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
