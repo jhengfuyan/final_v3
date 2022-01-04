@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -80,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
     class Data{
         int photo;
         String name;
-
     }
     public class GMyAdapter extends BaseAdapter {
         private MainActivity.Data[] data;
@@ -117,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        findViews();
 
         //---------spinner------------
         spinner = findViewById(R.id.spinner);
@@ -146,6 +147,9 @@ public class MainActivity extends AppCompatActivity {
                                     foodData[i].name = FoodArray[i];
                                     foodData[i].photo =FoodPhotoIdArray[i];
                                 }
+
+                                secondImage.setImageResource(R.drawable.image1);
+
                                 GMyAdapter foodAdapter = new GMyAdapter(foodData,R.layout.food_list);//放入foodData資料array
                                 GridView gridView = findViewById(R.id.gridView);
                                 gridView.setAdapter(foodAdapter);
@@ -153,7 +157,16 @@ public class MainActivity extends AppCompatActivity {
                                 gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                     @Override
                                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                        startActivityForResult(new Intent(MainActivity.this,MainActivity2.class),1);
+
+                                        Intent intent = new Intent();
+                                        Bundle b = new Bundle();
+                                        b.putInt("kitchen",0);
+                                        b.putInt("btn_sel",0);
+                                        b.putInt("pos",position);
+                                        intent.putExtras(b);
+
+                                        intent.setClass(MainActivity.this, MainActivity2.class);
+                                        startActivity(intent);
                                     }
                                 });
                             }
@@ -170,6 +183,9 @@ public class MainActivity extends AppCompatActivity {
                                     foodData[i].name = FoodArray[i];
                                     foodData[i].photo =FoodPhotoIdArray[i];
                                 }
+
+                                secondImage.setImageResource(R.drawable.cooker);
+
                                 GMyAdapter foodAdapter = new GMyAdapter(foodData,R.layout.food_list);//放入foodData資料array
                                 GridView gridView = findViewById(R.id.gridView);
                                 gridView.setAdapter(foodAdapter);
@@ -177,7 +193,16 @@ public class MainActivity extends AppCompatActivity {
                                 gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                     @Override
                                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                        startActivityForResult(new Intent(MainActivity.this,MainActivity2.class),1);
+
+                                        Intent intent = new Intent();
+                                        Bundle b = new Bundle();
+                                        b.putInt("kitchen",1);
+                                        b.putInt("btn_sel",0);
+                                        b.putInt("pos",position);
+                                        intent.putExtras(b);
+
+                                        intent.setClass(MainActivity.this, MainActivity2.class);
+                                        startActivity(intent);
                                     }
                                 });
                             }
@@ -185,15 +210,18 @@ public class MainActivity extends AppCompatActivity {
                         }
                         case 2:{//RE:0
                             if (charSearch[j] == chr){
-                                String[] FoodArray = new String[]{"爆炒熊肉","菜湯","白酒煮藍青口","莫斯科紅菜湯"};
-                                int [] FoodPhotoIdArray = new int[]{R.drawable.rebear,R.drawable.revegetablesoup
-                                        ,R.drawable.reclams,R.drawable.resoup};
+                                String[] FoodArray = new String[]{"基輔雞","雜拌湯","馬鈴薯沙拉","烏哈湯"};
+                                int [] FoodPhotoIdArray = new int[]{R.drawable.re_meat,R.drawable.re_soup
+                                        ,R.drawable.re_veg,R.drawable.re_seafood};
                                 Data[] foodData = new Data[FoodArray.length];
                                 for (int i = 0 ; i<foodData.length;i++){
                                     foodData[i] = new Data();
                                     foodData[i].name = FoodArray[i];
                                     foodData[i].photo =FoodPhotoIdArray[i];
                                 }
+
+                                secondImage.setImageResource(R.drawable.re);
+
                                 GMyAdapter foodAdapter = new GMyAdapter(foodData,R.layout.food_list);//放入foodData資料array
                                 GridView gridView = findViewById(R.id.gridView);
                                 gridView.setAdapter(foodAdapter);
@@ -201,11 +229,24 @@ public class MainActivity extends AppCompatActivity {
                                 gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                     @Override
                                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                        startActivityForResult(new Intent(MainActivity.this,MainActivity2.class),1);
+
+                                        Intent intent = new Intent();
+                                        Bundle b = new Bundle();
+                                        b.putInt("kitchen",2);
+                                        b.putInt("btn_sel",0);
+                                        b.putInt("pos",position);
+                                        intent.putExtras(b);
+
+                                        intent.setClass(MainActivity.this, MainActivity2.class);
+                                        startActivity(intent);
+
                                     }
                                 });
                             }
                             break;
+                        }
+                        default:{
+                            secondImage.setImageResource(R.drawable.image1);
                         }
                     }
                 }
@@ -218,4 +259,10 @@ public class MainActivity extends AppCompatActivity {
         Button btn_all = findViewById(R.id.btn_all);
 
     }
+    private ImageView secondImage;
+
+    private void findViews() {
+        secondImage = (ImageView) findViewById(R.id.imageView2);
+    }
+
 }
