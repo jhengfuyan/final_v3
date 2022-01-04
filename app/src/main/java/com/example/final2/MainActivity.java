@@ -264,7 +264,7 @@ public class MainActivity extends AppCompatActivity {
             }
             Data[] foodData = new Data[j];
             j = 0;
-            //    try{
+
             for (int i = 0 ; i < FoodArray.length;i++){
                 if(FoodArray[i].contains("湯")||FoodArray[i].contains("佛跳牆")) {
                     foodData[j] = new Data();
