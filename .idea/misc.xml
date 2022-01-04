@@ -6,12 +6,18 @@
         <entry key="..\:/App_design/final2/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/App_design/final2/app/src/main/res/layout/food_list.xml" value="0.225" />
         <entry key="..\:/App_design/final2/app/src/main/res/layout/procedure_step.xml" value="0.225" />
-        <entry key="..\:/App_design/final_v3/app/src/main/res/layout/activity_main.xml" value="0.225" />
+<<<<<<< HEAD
         <entry key="..\:/App_design/final_v3/app/src/main/res/layout/food_list.xml" value="0.225" />
-        <entry key="..\:/Users/User/Desktop/final_v3-master/app/src/main/res/layout/activity_main.xml" value="0.264" />
+=======
+>>>>>>> origin/108360120
         <entry key="..\:/Users/User/Desktop/final_v3-master/app/src/main/res/layout/activity_main2.xml" value="0.4" />
         <entry key="..\:/Users/User/Desktop/final_v3-master/app/src/main/res/layout/food_list.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/User/Desktop/final_v3-master/app/src/main/res/layout/procedure_step.xml" value="0.21603260869565216" />
+<<<<<<< HEAD
+=======
+        <entry key="..\:/Users/iceOwater1/Desktop/final_v3/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/iceOwater1/Desktop/final_v3/app/src/main/res/layout/food_list.xml" value="0.36614583333333334" />
+>>>>>>> origin/108360120
       </map>
     </option>
   </component>
