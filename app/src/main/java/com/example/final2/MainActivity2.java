@@ -186,12 +186,72 @@ public class MainActivity2 extends AppCompatActivity {
                     }
 
                     case 1: {
+                        switch (pos) {
+                            case 0: {
+                                name.setText("筍乾封肉");
+                                ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, chinesemeat);
+                                listview.setAdapter(adapter);
+                                secondImage.setImageResource(R.drawable.chinesemeat);
+                                break;
+                            }
+                            case 1: {
+                                name.setText("高麗菜煎餅");
+                                ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, chinesevegetable);
+                                listview.setAdapter(adapter);
+                                secondImage.setImageResource(R.drawable.chinesevegetable);
+                                break;
+                            }
+                            case 2: {
+                                name.setText("佛跳牆");
+                                ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, chinesesoup);
+                                listview.setAdapter(adapter);
+                                secondImage.setImageResource(R.drawable.chinesesoup);
+                                break;
+                            }
+                        }
                         break;
                     }
                     case 2: {
+                        switch (pos) {
+                            case 0: {
+                                name.setText("高麗菜煎餅");
+                                ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, chinesevegetable);
+                                listview.setAdapter(adapter);
+                                secondImage.setImageResource(R.drawable.chinesevegetable);
+                                break;
+                            }
+                            case 1: {
+                                name.setText("佛跳牆");
+                                ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, chinesesoup);
+                                listview.setAdapter(adapter);
+                                secondImage.setImageResource(R.drawable.chinesesoup);
+                                break;
+                            }
+                        }
                         break;
                     }
                     case 3: {
+                        switch (pos) {
+                            case 0: {
+                                name.setText("佛跳牆");
+                                ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, chinesesoup);
+                                listview.setAdapter(adapter);
+                                secondImage.setImageResource(R.drawable.chinesesoup);
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                    case 4: {
+                        switch (pos) {
+                            case 0: {
+                                name.setText("蒜蓉蒸蝦");
+                                ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, chinesegarlicshirmp);
+                                listview.setAdapter(adapter);
+                                secondImage.setImageResource(R.drawable.chinesegarlicshirmp);
+                                break;
+                            }
+                        }
                         break;
                     }
                 }
@@ -234,12 +294,51 @@ public class MainActivity2 extends AppCompatActivity {
                     }
 
                     case 1: {
+                        switch (pos) {
+                            case 0: {
+                                name.setText("紅酒燉牛肉");
+                                ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, redmeat);
+                                listview.setAdapter(adapter);
+                                secondImage.setImageResource(R.drawable.redmeat);
+                                break;
+                            }
+                        }
                         break;
                     }
                     case 2: {
+                        switch (pos) {
+                            case 0: {
+                                name.setText("馬鈴薯球");
+                                ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, potato);
+                                listview.setAdapter(adapter);
+                                secondImage.setImageResource(R.drawable.potato);
+                                break;
+                            }
+                        }
                         break;
                     }
                     case 3: {
+                        switch (pos) {
+                            case 0: {
+                                name.setText("羅宋湯");
+                                ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, soup);
+                                listview.setAdapter(adapter);
+                                secondImage.setImageResource(R.drawable.soup);
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                    case 4: {
+                        switch (pos) {
+                            case 0: {
+                                name.setText("香煎杏仁鱈魚");
+                                ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, fish);
+                                listview.setAdapter(adapter);
+                                secondImage.setImageResource(R.drawable.fish);
+                                break;
+                            }
+                        }
                         break;
                     }
                 }
@@ -264,7 +363,7 @@ public class MainActivity2 extends AppCompatActivity {
                                 break;
                             }
                             case 2: {
-                                name.setText("馬鈴薯沙拉");
+                                name.setText("馬鈴薯沙拉菜");
                                 ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, re_veg);
                                 listview.setAdapter(adapter);
                                 secondImage.setImageResource(R.drawable.re_veg);
@@ -282,12 +381,58 @@ public class MainActivity2 extends AppCompatActivity {
                     }
 
                     case 1: {
+                        switch (pos) {
+                            case 0: {
+                                name.setText("基輔雞肉");
+                                ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, re_meat);
+                                listview.setAdapter(adapter);
+                                secondImage.setImageResource(R.drawable.re_meat);
+                                break;
+                            }
+                        }
                         break;
                     }
                     case 2: {
+                        switch (pos) {
+                            case 0: {
+                                name.setText("馬鈴薯沙拉菜");
+                                ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, re_veg);
+                                listview.setAdapter(adapter);
+                                secondImage.setImageResource(R.drawable.re_veg);
+                                break;
+                            }
+                        }
                         break;
                     }
                     case 3: {
+                        switch (pos) {
+                            case 0: {
+                                name.setText("雜拌湯");
+                                ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, re_soup);
+                                listview.setAdapter(adapter);
+                                secondImage.setImageResource(R.drawable.re_soup);
+                                break;
+                            }
+                            case 1: {
+                                name.setText("烏哈湯");
+                                ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, re_seafood);
+                                listview.setAdapter(adapter);
+                                secondImage.setImageResource(R.drawable.re_seafood);
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                    case 4: {
+                        switch (pos) {
+                            case 0: {
+                                name.setText("烏哈湯");
+                                ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, re_seafood);
+                                listview.setAdapter(adapter);
+                                secondImage.setImageResource(R.drawable.re_seafood);
+                                break;
+                            }
+                        }
                         break;
                     }
                 }
@@ -305,7 +450,6 @@ public class MainActivity2 extends AppCompatActivity {
         });
     }
     private ImageView secondImage;
-
     private void findViews() {
         secondImage = (ImageView) findViewById(R.id.picture);
     }
