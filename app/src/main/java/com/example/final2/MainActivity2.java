@@ -15,6 +15,8 @@ import android.widget.TextView;
 public class MainActivity2 extends AppCompatActivity {
     private Button back;
     private ImageView picture;
+    public int flag;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +24,7 @@ public class MainActivity2 extends AppCompatActivity {
 
         ListView listview = (ListView) findViewById(R.id.list_step);
         TextView name = (TextView) findViewById(R.id.meal_name);
+        Button restaurant =findViewById(R.id.restaurant);
 
         findViews();
         String[] chinesemeat =
@@ -165,6 +168,16 @@ public class MainActivity2 extends AppCompatActivity {
 
         switch (kitchen) {
             case 0: {
+                flag=0;
+                restaurant.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent();
+                        intent.setClass(MainActivity2.this, MainActivity3.class);
+                        intent.putExtra("restaurant", flag);
+                        startActivity(intent);
+                    }
+                });
                 switch (btn_sel) {
                     case 0: {
                         switch (pos) {
@@ -173,6 +186,7 @@ public class MainActivity2 extends AppCompatActivity {
                                 ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, chinesemeat);
                                 listview.setAdapter(adapter);
                                 secondImage.setImageResource(R.drawable.chinesemeat);
+
                                 break;
                             }
                             case 1: {
@@ -273,6 +287,16 @@ public class MainActivity2 extends AppCompatActivity {
                 break;
             }
             case 1: {
+                flag=1;
+                restaurant.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent();
+                        intent.setClass(MainActivity2.this, MainActivity3.class);
+                        intent.putExtra("restaurant", flag);
+                        startActivity(intent);
+                    }
+                });
                 switch (btn_sel) {
                     case 0: {
                         switch (pos) {
@@ -360,6 +384,16 @@ public class MainActivity2 extends AppCompatActivity {
                 break;
             }
             case 2: {
+                flag=2;
+                restaurant.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent();
+                        intent.setClass(MainActivity2.this, MainActivity3.class);
+                        intent.putExtra("restaurant", flag);
+                        startActivity(intent);
+                    }
+                });
                 switch (btn_sel) {
                     case 0: {
                         switch (pos) {
