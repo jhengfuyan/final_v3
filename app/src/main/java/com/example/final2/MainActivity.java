@@ -111,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
                     switch (j){
                         case 0 :{//擦菜
                             if (charSearch[j] == chr){
+                                flag = 0;
                                 Data[] foodData = new Data[chineseArray.length];
                                 FoodArray = new String[chineseArray.length];
                                 FoodPhotoArray = new int[chinesePhotoIdArray.length];
@@ -148,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                         case 1:{//庫克
                             if (charSearch[j] == chr){
+                                flag = 0;
                                 Data[] foodData = new Data[cookerArray.length];
                                 FoodArray = new String[cookerArray.length];
                                 FoodPhotoArray = new int[cookerPhotoIdArray.length];
@@ -185,6 +187,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                         case 2:{//RE:0
                             if (charSearch[j] == chr){
+                                flag = 0;
                                 Data[] foodData = new Data[reArray.length];
                                 FoodArray = new String[reArray.length];
                                 FoodPhotoArray = new int[rePhotoIdArray.length];
