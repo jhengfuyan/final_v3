@@ -20,15 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.409"
         app:layout_constraintStart_toStartOf="parent"
-<<<<<<< HEAD
-<<<<<<< HEAD
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-=======
         app:layout_constraintTop_toBottomOf="@+id/picture" />
->>>>>>> origin/108360120
-=======
-        app:layout_constraintTop_toBottomOf="@+id/picture" />
->>>>>>> 108360124
 
     <Button
         android:id="@+id/back"
@@ -56,30 +48,6 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-<<<<<<< HEAD
-<<<<<<< HEAD
-        android:id="@+id/textView2"
-        android:layout_width="174dp"
-        android:layout_height="140dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="32dp"
-=======
-        android:id="@+id/meal_name"
-        android:layout_width="175dp"
-        android:layout_height="78dp"
-        android:layout_marginTop="72dp"
->>>>>>> 108360124
-        android:layout_marginEnd="14dp"
-        android:text="TextView"
-        android:textSize="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/picture"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-<<<<<<< HEAD
-        android:id="@+id/imageView3"
-=======
         android:id="@+id/meal_name"
         android:layout_width="175dp"
         android:layout_height="78dp"
@@ -93,24 +61,11 @@
 
     <ImageView
         android:id="@+id/picture"
->>>>>>> origin/108360120
-=======
-        android:id="@+id/picture"
->>>>>>> 108360124
         android:layout_width="201dp"
         android:layout_height="143dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
-<<<<<<< HEAD
-<<<<<<< HEAD
-        android:layout_marginEnd="1dp"
-        app:layout_constraintEnd_toStartOf="@+id/textView2"
-=======
         app:layout_constraintEnd_toStartOf="@+id/meal_name"
->>>>>>> origin/108360120
-=======
-        app:layout_constraintEnd_toStartOf="@+id/meal_name"
->>>>>>> 108360124
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/chinesegarlicshirmp" />

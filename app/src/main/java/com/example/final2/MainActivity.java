@@ -42,24 +42,10 @@ public class MainActivity extends AppCompatActivity {
     //-----------------cooker food ------------------------
     //-----------------re0 food ------------------------
     private String[] reArray = new String[]{
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "爆炒熊肉","菜湯",
-            "白酒煮藍青口","莫斯科紅菜湯"};
-    private int [] rePhotoIdArray = new int[]{
-            R.drawable.rebear,R.drawable.revegetablesoup,
-            R.drawable.reclams,R.drawable.resoup};
-=======
-=======
->>>>>>> 108360124
             "基輔雞肉","雜拌湯","馬鈴薯沙拉菜","烏哈湯"};
     private int [] rePhotoIdArray = new int[]{
             R.drawable.re_meat,R.drawable.re_soup
             ,R.drawable.re_veg,R.drawable.re_seafood};
-<<<<<<< HEAD
->>>>>>> origin/108360120
-=======
->>>>>>> 108360124
     //-----------------re0 food ------------------------
 
 
@@ -142,9 +128,6 @@ public class MainActivity extends AppCompatActivity {
                                 GridView gridView = findViewById(R.id.gridView);
                                 gridView.setAdapter(foodAdapter);
                                 gridView.setNumColumns(2);
-<<<<<<< HEAD
-
-=======
                                 gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                     @Override
                                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -160,7 +143,6 @@ public class MainActivity extends AppCompatActivity {
                                         startActivity(intent);
                                     }
                                 });
->>>>>>> origin/108360120
                             }
                             break;
                         }
@@ -219,9 +201,6 @@ public class MainActivity extends AppCompatActivity {
                                 GridView gridView = findViewById(R.id.gridView);
                                 gridView.setAdapter(foodAdapter);
                                 gridView.setNumColumns(2);
-<<<<<<< HEAD
-
-=======
                                 gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                     @Override
                                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -238,7 +217,6 @@ public class MainActivity extends AppCompatActivity {
 
                                     }
                                 });
->>>>>>> origin/108360120
                             }
                             break;
                         }
@@ -252,112 +230,6 @@ public class MainActivity extends AppCompatActivity {
         //-------spinner selected End---------------
         //-------btn_all click ---------------
         Button btn_all = findViewById(R.id.btn_all);
-        btn_all.setOnClickListener(v -> {
-            Data[] foodData = new Data[FoodArray.length];
-            for (int i = 0 ; i<FoodArray.length;i++){
-                foodData[i] = new Data();
-                foodData[i].name = FoodArray[i];
-                foodData[i].photo = FoodPhotoArray[i];
-            }
-            GMyAdapter foodAdapter = new GMyAdapter(foodData,R.layout.food_list);//放入foodData資料array
-            GridView gridView = findViewById(R.id.gridView);
-            gridView.setAdapter(foodAdapter);
-            gridView.setNumColumns(2);
-        });
-        //-------btn_all click End---------------
-
-        //-------btn_meats click---------------
-        Button btn_meat = findViewById(R.id.btn_meat);
-        btn_meat.setOnClickListener(v -> {
-            int j = 0;
-            for (int i = 0 ; i<FoodArray.length;i++){
-                if(FoodArray[i].indexOf("肉") != -1||FoodArray[i].contains("佛跳牆")) {
-                    j++;
-                }
-            }
-            Data[] foodData = new Data[j];
-            j = 0;
-            //    try{
-            for (int i = 0 ; i < FoodArray.length;i++){
-                if(FoodArray[i].contains("肉")||FoodArray[i].contains("佛跳牆")) {
-                    foodData[j] = new Data();
-                    foodData[j].name = FoodArray[i];
-                    foodData[j].photo = FoodPhotoArray[i];
-                    j++;
-                }
-            }
-
-            //    } catch (Exception e) {
-            //        e.printStackTrace();
-            //    }
-            GMyAdapter foodAdapter = new GMyAdapter(foodData,R.layout.food_list);//放入foodData資料array
-            GridView gridView = findViewById(R.id.gridView);
-            gridView.setAdapter(foodAdapter);
-            gridView.setNumColumns(2);
-        });
-        //-------btn_meats click end---------------
-
-        //-------btn_vegetable click ---------------
-        Button btn_vegetable = findViewById(R.id.btn_vegetable);
-        btn_vegetable.setOnClickListener(v -> {
-            int j = 0;
-            for (int i = 0 ; i<FoodArray.length;i++){
-                if(FoodArray[i].indexOf("菜") != -1||FoodArray[i].contains("薯")||FoodArray[i].contains("佛跳牆")) {
-                    j++;
-                }
-            }
-            Data[] foodData = new Data[j];
-            j = 0;
-            //    try{
-            for (int i = 0 ; i < FoodArray.length;i++){
-                if(FoodArray[i].contains("菜")||FoodArray[i].contains("薯")||FoodArray[i].contains("佛跳牆")) {
-                    foodData[j] = new Data();
-                    foodData[j].name = FoodArray[i];
-                    foodData[j].photo = FoodPhotoArray[i];
-                    j++;
-                }
-            }
-
-            //    } catch (Exception e) {
-            //        e.printStackTrace();
-            //    }
-            GMyAdapter foodAdapter = new GMyAdapter(foodData,R.layout.food_list);//放入foodData資料array
-            GridView gridView = findViewById(R.id.gridView);
-            gridView.setAdapter(foodAdapter);
-            gridView.setNumColumns(2);
-        });
-        //-------btn_vegetable click end ---------------
-
-        //-------btn_soup click ---------------
-        Button btn_soup = findViewById(R.id.btn_soup);
-        btn_soup.setOnClickListener(v -> {
-            int j = 0;
-            for (int i = 0 ; i<FoodArray.length;i++){
-                if(FoodArray[i].indexOf("湯") != -1||FoodArray[i].contains("佛跳牆")) {
-                    j++;
-                }
-            }
-            Data[] foodData = new Data[j];
-            j = 0;
-
-            for (int i = 0 ; i < FoodArray.length;i++){
-                if(FoodArray[i].contains("湯")||FoodArray[i].contains("佛跳牆")) {
-                    foodData[j] = new Data();
-                    foodData[j].name = FoodArray[i];
-                    foodData[j].photo = FoodPhotoArray[i];
-                    j++;
-                }
-            }
-
-            //    } catch (Exception e) {
-            //        e.printStackTrace();
-            //    }
-            GMyAdapter foodAdapter = new GMyAdapter(foodData,R.layout.food_list);//放入foodData資料array
-            GridView gridView = findViewById(R.id.gridView);
-            gridView.setAdapter(foodAdapter);
-            gridView.setNumColumns(2);
-        });
-        //-------btn_soup click end ---------------
 
         btn_all.setOnClickListener(v -> {
             flag = 0;
@@ -462,112 +334,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
 
-<<<<<<< HEAD
-=======
-        btn_all.setOnClickListener(v -> {
-            flag = 0;
-            Data[] foodData = new Data[FoodArray.length];
-            for (int i = 0 ; i<FoodArray.length;i++){
-                foodData[i] = new Data();
-                foodData[i].name = FoodArray[i];
-                foodData[i].photo = FoodPhotoArray[i];
-            }
-            GMyAdapter foodAdapter = new GMyAdapter(foodData,R.layout.food_list);//放入foodData資料array
-            GridView gridView = findViewById(R.id.gridView);
-            gridView.setAdapter(foodAdapter);
-            gridView.setNumColumns(2);
-        });
-        //-------btn_all click End---------------
-
-        //-------btn_meats click---------------
-        Button btn_meat = findViewById(R.id.btn_meat);
-        btn_meat.setOnClickListener(v -> {
-            flag = 1;
-            int j = 0;
-            for (int i = 0 ; i<FoodArray.length;i++){
-                if(FoodArray[i].indexOf("肉") != -1||FoodArray[i].contains("佛跳牆")) {
-                    j++;
-                }
-            }
-            Data[] foodData = new Data[j];
-            j = 0;
-            //    try{
-            for (int i = 0 ; i < FoodArray.length;i++){
-                if(FoodArray[i].contains("肉")||FoodArray[i].contains("佛跳牆")) {
-                    foodData[j] = new Data();
-                    foodData[j].name = FoodArray[i];
-                    foodData[j].photo = FoodPhotoArray[i];
-                    j++;
-                }
-            }
-
-            //    } catch (Exception e) {
-            //        e.printStackTrace();
-            //    }
-            GMyAdapter foodAdapter = new GMyAdapter(foodData,R.layout.food_list);//放入foodData資料array
-            GridView gridView = findViewById(R.id.gridView);
-            gridView.setAdapter(foodAdapter);
-            gridView.setNumColumns(2);
-        });
-        //-------btn_meats click end---------------
-
-        //-------btn_vegetable click ---------------
-        Button btn_vegetable = findViewById(R.id.btn_vegetable);
-
-        btn_vegetable.setOnClickListener(v -> {
-            flag = 2;
-            int j = 0;
-            for (int i = 0 ; i<FoodArray.length;i++){
-                if(FoodArray[i].indexOf("菜") != -1||FoodArray[i].contains("薯")||FoodArray[i].contains("佛跳牆")) {
-                    j++;
-                }
-            }
-            Data[] foodData = new Data[j];
-            j = 0;
-            //    try{
-            for (int i = 0 ; i < FoodArray.length;i++){
-                if(FoodArray[i].contains("菜")||FoodArray[i].contains("薯")||FoodArray[i].contains("佛跳牆")) {
-                    foodData[j] = new Data();
-                    foodData[j].name = FoodArray[i];
-                    foodData[j].photo = FoodPhotoArray[i];
-                    j++;
-                }
-            }
-
-            //    } catch (Exception e) {
-            //        e.printStackTrace();
-            //    }
-            GMyAdapter foodAdapter = new GMyAdapter(foodData,R.layout.food_list);//放入foodData資料array
-            GridView gridView = findViewById(R.id.gridView);
-            gridView.setAdapter(foodAdapter);
-            gridView.setNumColumns(2);
-        });
-        //-------btn_vegetable click end ---------------
-
-        //-------btn_soup click ---------------
-        Button btn_soup = findViewById(R.id.btn_soup);
-
-        btn_soup.setOnClickListener(v -> {
-            flag = 3;
-            int j = 0;
-            for (int i = 0 ; i<FoodArray.length;i++){
-                if(FoodArray[i].indexOf("湯") != -1||FoodArray[i].contains("佛跳牆")) {
-                    j++;
-                }
-            }
-            Data[] foodData = new Data[j];
-            j = 0;
-            //    try{
-            for (int i = 0 ; i < FoodArray.length;i++){
-                if(FoodArray[i].contains("湯")||FoodArray[i].contains("佛跳牆")) {
-                    foodData[j] = new Data();
-                    foodData[j].name = FoodArray[i];
-                    foodData[j].photo = FoodPhotoArray[i];
-                    j++;
-                }
-            }
-
->>>>>>> 108360124
             //    } catch (Exception e) {
             //        e.printStackTrace();
             //    }
